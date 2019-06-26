@@ -1,0 +1,22 @@
+.home-page-component {
+}
+
+.home-page-component ul.video-list-component {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.home-page-component li {
+  display: flex;
+  margin-bottom: 1rem;
+  justify-content: center;
+}
+
+.home-page-component li:nth-child(5n) {
+  margin-right: 0;
+}
+
+.home-page-component li a {
+  display: block;
+}

@@ -1,0 +1,10 @@
+.channel-component {
+  padding: 1rem 0;
+  /* border-bottom: 1px solid #ddd; */
+}
+
+.channel-component .channel-name {
+  margin: 0;
+  margin-bottom: 1rem;
+  text-align: left;
+}
