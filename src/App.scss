@@ -61,6 +61,11 @@ body {
   overflow: hidden;
   overflow-y: auto;
   padding-bottom: 5rem;
+
+
+  @media screen and (max-width: 767px) {
+    padding-bottom: 0;
+  }
 }
 
 $related-talks-width: 400px;
@@ -79,6 +84,14 @@ $related-talks-width: 400px;
     max-width: 100%;
     margin: 1rem auto;
     padding: 2.5rem;
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+
+  .footer-component {
+    @media screen and (max-width: 767px) {
+      position: unset;
+    }
   }
 }
 

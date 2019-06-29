@@ -50,6 +50,10 @@
       border: 1px solid $transparent-red;
       color: inherit;
       width: 100%;
+
+      @media screen and (max-width: 767px) {
+        color: $black;
+      }
     }
 
     button {

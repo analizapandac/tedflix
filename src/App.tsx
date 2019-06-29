@@ -12,6 +12,17 @@ import { LoadingPage } from "./components/LoadingPage";
 
 const DEBOUNCE_TIME = 500;
 
+const isMobile: () => boolean = () => {
+  try {
+    return window.matchMedia("(max-width: 767px)").matches;
+  } catch (err) {
+    console.log("err", err);
+    return false;
+  }
+};
+
+const IS_MOBILE = isMobile();
+
 const App: React.FC = () => {
   const [videos, setVideos] = React.useState<Video[]>([]);
   const [selectedVideo, setSelectedVideo] = React.useState<Video | null>(null);
@@ -66,12 +77,11 @@ const App: React.FC = () => {
     setSelectedVideo(video || null);
 
     try {
-      const isMobile = window.matchMedia("(max-width: 767px)").matches;
-      if (isMobile) {
+      if (IS_MOBILE) {
         window.scrollTo({
           top: 100,
           left: 0,
-          behavior: 'smooth'
+          behavior: "smooth"
         });
       }
     } catch (err) {
@@ -92,13 +102,8 @@ const App: React.FC = () => {
       setIsSearching(true);
       setLastSearchQuery(searchQuery);
       searchVideos(searchQuery);
-      try {
-        const isMobile = window.matchMedia("(max-width: 767px)").matches;
-        if (isMobile) {
-          setSelectedVideo(null);
-        }
-      } catch (err) {
-        console.log("err", err);
+      if (IS_MOBILE) {
+        setSelectedVideo(null);
       }
     }
   };
@@ -115,6 +120,8 @@ const App: React.FC = () => {
     }
   };
 
+  const stickFooterAtBottom = !IS_MOBILE || videos.length === 0;
+  
   return (
     <div>
       <TedxBackground />
@@ -131,9 +138,10 @@ const App: React.FC = () => {
                 onVideoClick={onVideoClick}
                 isSearching={isSearching}
               />
+              {!stickFooterAtBottom ? <Footer /> : null}
             </div>
           </div>
-          <Footer />
+          {stickFooterAtBottom ? <Footer /> : null}
         </div>
       ) : (
         <LoadingPage />

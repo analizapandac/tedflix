@@ -20,7 +20,7 @@ export const VideoPlayer: React.FC<VideoPlayerProps> = ({
               <iframe
                 frameBorder="0"
                 title="YouTube video player"
-                src={`https://www.youtube.com/embed/${videoId}?feature=oembed&controls=1&hd=1&modestbranding=1&autohide=1&showinfo=0`}
+                src={`https://www.youtube.com/embed/${videoId}?feature=oembed&controls=1&hd=1&modestbranding=1&autohide=1&showinfo=0&fs=1`}
               />
             </div>
           </div>
