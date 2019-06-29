@@ -35,6 +35,22 @@ body {
   flex-direction: column;
   overflow: auto;
   overflow-x: hidden;
+
+  @media screen and (max-width: 767px) {
+    padding-top: 90px;
+  }
+}
+
+.error-message {
+  background: $red;
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+  text-shadow: none;
+  text-align: center;
+
+  p {
+    margin: 0;
+  }
 }
 
 .app-content {
@@ -58,5 +74,11 @@ $related-talks-width: 400px;
   flex: 1;
   max-width: $related-talks-width;
   min-width: 200px;
+
+  @media screen and (max-width: 767px) {
+    max-width: 100%;
+    margin: 1rem auto;
+    padding: 2.5rem;
+  }
 }
 

@@ -1,5 +1,5 @@
 import React from "react";
-import './TedxBackground.scss';
+import "./TedxBackground.scss";
 
 export const TedxBackground: React.FC = () => {
   const appBackground = React.useRef(null);
@@ -20,6 +20,7 @@ export const TedxBackground: React.FC = () => {
       // 2: load large image
       const imgLarge = new Image();
       imgLarge.src = appBackgroundElement.dataset.large || "";
+      imgLarge.setAttribute("alt", "Tedx background");
       imgLarge.onload = () => {
         imgLarge.classList.add("loaded");
         appImageThumbnailEl.classList.remove("loaded");
@@ -39,6 +40,7 @@ export const TedxBackground: React.FC = () => {
         ref={appBgThumbnail}
         src="./background-thumbnail.jpg"
         className="img-small"
+        alt="Tedx background thumbnail"
       />
     </div>
   );

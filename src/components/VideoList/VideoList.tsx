@@ -16,6 +16,9 @@ export const VideoList: React.FC<VideoListProps> = ({
   onVideoClick
 }: VideoListProps) => {
   const renderVideos: () => React.ReactNode = () => {
+    if (!videos.length) {
+      return <p className="empty-placeholder">No talks found.</p>;
+    }
     return (
       <ul>
         {videos.map(({ title, videoId, mediumThumbnailURL }) => {
@@ -39,7 +42,11 @@ export const VideoList: React.FC<VideoListProps> = ({
   };
 
   const renderSearchingIndicator: () => React.ReactNode = () => {
-    return <p className="searching-indicator">Fetching talks from Youtube, please wait...</p>;
+    return (
+      <p className="searching-indicator">
+        Fetching talks from Youtube, please wait...
+      </p>
+    );
   };
 
   return (

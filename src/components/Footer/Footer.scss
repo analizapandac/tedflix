@@ -21,6 +21,15 @@
       margin-right: 0.25rem;
     }
 
+    @media screen and (max-width: 767px) {
+      flex-direction: column;
+      text-align: center;
+
+      > div {
+        margin-top: 0.75rem;
+      }
+    }
+
     a {
       color: $white;
       text-decoration: underline;

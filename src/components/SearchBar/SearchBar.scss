@@ -5,6 +5,14 @@
   width: 100%;
   padding: 1rem;
 
+  @media screen and (max-width: 767px) {
+    background: $red;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+
   .search-form {
     display: flex;
     flex: 1;
@@ -12,6 +20,11 @@
     align-items: flex-end;
     color: $dirty-white;
     transition: color 0.3s;
+
+    @media screen and (max-width: 767px) {
+      color: $white;
+      text-shadow: none;
+    }
 
     &:hover {
       color: $white;
@@ -60,6 +73,33 @@
 
         img {
           filter: brightness(0) invert(1);
+        }
+      }
+    }
+
+    @media screen and (max-width: 767px) {
+      input,
+      button {
+        background: $white;
+      }
+
+      input {
+        border-color: $red;
+      }
+
+      button {
+        border-color: $red;
+
+        &:hover,
+        &:active,
+        &:focus {
+          color: $white;
+          cursor: pointer;
+          background: #fefefe;
+
+          img {
+            filter: none;
+          }
         }
       }
     }

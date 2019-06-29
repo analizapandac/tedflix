@@ -10,6 +10,11 @@ $video-width: 95%;
   padding: 1rem 1.5rem;
   z-index: 1;
 
+  @media screen and (max-width: 767px) {
+    margin: 1rem;
+    max-width: 100%;
+  }
+
   .video-wrapper {
     position: relative;
     $rotation: 45deg;
@@ -26,6 +31,14 @@ $video-width: 95%;
       z-index: -1;
       max-width: 650px;
       margin: 0 auto;
+
+      @media screen and (max-width: 767px) {
+        max-width: 100px;
+      }
+
+      @media screen and (max-width: 500px) {
+        content: none;
+      }
     }
 
     &:after {
@@ -44,6 +57,10 @@ $video-width: 95%;
     margin: 0;
     margin-bottom: 1rem;
     position: relative;
+
+    @media screen and (max-width: 767px) {
+      font-size: 1.5rem;
+    }
 
     $border-thickness: 2px;
     $border-length: 15%;

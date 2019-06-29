@@ -3,13 +3,16 @@ import { Video } from "../interfaces/Video";
 import { shuffleVideos } from "../utils/array-helpers";
 
 export const QUOTA_EXCEEDED_ERROR =
-  "Youtube API Error: Maximum quota limit exceeded for today. Try again tomorrow.";
+  "Youtube API Error: The request cannot be completed because you have exceeded your usage quota. Try again tomorrow.";
 
 export const GENERAL_REQUEST_ERROR =
   "Youtube API Error: An error occured while reaching out to Youtube for this request.";
 
 export const NOT_FOUND_ERROR =
   "Youtube API Error: The video you are looking for does not exist in Youtube.";
+
+export const INVALID_KEY_ERROR =
+  "The API key that you provided is invalid. Please check your code configuration.";
 
 const API_KEY = process.env.REACT_APP_API_KEY || "";
 
@@ -78,6 +81,20 @@ export const fetchChannelVideos: (
     }
     return videos;
   } catch (e) {
+    const errorData = ((e.response || {}).data || {}).error || {};
+    if (Object.prototype.hasOwnProperty.call(errorData, "errors")) {
+      try {
+        const error = errorData.errors[0];
+        if (error && error.reason === "keyInvalid") {
+          return Promise.reject(INVALID_KEY_ERROR);
+        } else if (error && error.reason === "quotaExceeded") {
+          return Promise.reject(QUOTA_EXCEEDED_ERROR);
+        }
+      } catch (err) {
+        console.log("err", err);
+      }
+    }
+
     if (e.response.status === 403) {
       return Promise.reject(QUOTA_EXCEEDED_ERROR);
     } else if (e.response.status === 400) {

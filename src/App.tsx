@@ -29,9 +29,9 @@ const App: React.FC = () => {
         setSelectedVideo(channelVideos.length > 0 ? channelVideos[0] : null);
         setLoaded(true);
         setIsSearching(false);
+        setErrorMessage("");
       })
       .catch((err) => {
-        console.log("error", err);
         setErrorMessage(err);
         setLoaded(false);
         setIsSearching(false);
@@ -47,10 +47,11 @@ const App: React.FC = () => {
       .then(function(channelVideos) {
         setVideos(channelVideos);
         setIsSearching(false);
+        setErrorMessage("");
       })
-      .catch((err) => {
-        console.log("error", err);
+      .catch((err: string) => {
         setErrorMessage(err);
+        setVideos([]);
         setIsSearching(false);
       });
   };
@@ -63,6 +64,19 @@ const App: React.FC = () => {
     const video = videos.find((video: Video) => video.videoId === videoId);
 
     setSelectedVideo(video || null);
+
+    try {
+      const isMobile = window.matchMedia("(max-width: 767px)").matches;
+      if (isMobile) {
+        window.scrollTo({
+          top: 100,
+          left: 0,
+          behavior: 'smooth'
+        });
+      }
+    } catch (err) {
+      console.log("err", err);
+    }
   };
 
   const onVideoSearch: (searchQuery: string) => void = (
@@ -78,6 +92,14 @@ const App: React.FC = () => {
       setIsSearching(true);
       setLastSearchQuery(searchQuery);
       searchVideos(searchQuery);
+      try {
+        const isMobile = window.matchMedia("(max-width: 767px)").matches;
+        if (isMobile) {
+          setSelectedVideo(null);
+        }
+      } catch (err) {
+        console.log("err", err);
+      }
     }
   };
 
@@ -88,7 +110,6 @@ const App: React.FC = () => {
       return (
         <div className="error-message">
           <p>{errorMessage}</p>
-          <p className="error-emoticon" />
         </div>
       );
     }
@@ -99,6 +120,7 @@ const App: React.FC = () => {
       <TedxBackground />
       {loaded ? (
         <div className="app-wrapper">
+          {renderErrorMessage()}
           <div className="app-content">
             {selectedVideo ? <VideoPlayer video={selectedVideo} /> : null}
             <div className="sidebar">

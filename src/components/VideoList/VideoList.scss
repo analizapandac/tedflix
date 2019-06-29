@@ -1,4 +1,4 @@
-@import '../../colors';
+@import "../../colors";
 
 .video-list-component {
   background: $transparent-red;
@@ -10,14 +10,25 @@
   opacity: 0.7;
   transition: opacity 0.3s;
 
+  @media screen and (max-width: 767px) {
+    opacity: 1;
+    background: $red;
+    height: auto;
+  }
+
   .title {
     margin: 0;
     margin-bottom: 1rem;
   }
 
-  .searching-indicator {
+  .searching-indicator,
+  .empty-placeholder {
     font-size: 0.75rem;
     color: $dirty-white;
+
+    @media screen and (max-width: 767px) {
+      color: $white;
+    }
   }
 
   ul {
