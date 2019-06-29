@@ -1,36 +1,34 @@
 import React from "react";
 import debounce from "lodash.debounce";
-import "./App.css";
-import { Video, VideoSelectionArgs } from "./interfaces/Video";
+import "./App.scss";
+import { Video } from "./interfaces/Video";
 import { fetchChannelVideos, fetchDefaultVideos } from "./api/youtube";
-import { AppProvider } from "./contexts/AppContext";
+import { TedxBackground } from "./components/TedxBackground";
 import { SearchBar } from "./components/SearchBar";
-import { HomePage } from "./components/HomePage";
-import { VideoPage } from "./components/VideoPage";
-
-const DEFAULT_CHANNELS = [
-  {
-    channelId: "UCsT0YIqwnpJCM-mx7-gSA4Q",
-    defaultVideoId: "52lZmIafep4"
-  }
-];
+import { VideoList } from "./components/VideoList";
+import { Footer } from "./components/Footer";
+import { VideoPlayer } from "./components/VideoPlayer";
+import { LoadingPage } from "./components/LoadingPage";
 
 const DEBOUNCE_TIME = 500;
 
 const App: React.FC = () => {
   const [videos, setVideos] = React.useState<Video[]>([]);
   const [selectedVideo, setSelectedVideo] = React.useState<Video | null>(null);
-  const [relatedVideos, setRelatedVideos] = React.useState<Video[]>();
   const [errorMessage, setErrorMessage] = React.useState<string>();
+  const [loaded, setLoaded] = React.useState(false);
 
   const getDefaultVideos: () => void = () => {
     fetchDefaultVideos()
       .then(function(channelVideos) {
         setVideos(channelVideos);
+        setSelectedVideo(channelVideos.length > 0 ? channelVideos[0] : null);
+        setLoaded(true);
       })
       .catch((err) => {
         console.log("error", err);
         setErrorMessage(err);
+        setLoaded(false);
       });
   };
 
@@ -49,25 +47,13 @@ const App: React.FC = () => {
 
   React.useEffect(() => {
     getDefaultVideos();
-  }, [videos.length]);
+  }, []);
 
-  // const onVideoSelect: ({ channelId, videoId }: VideoSelectionArgs) => void = ({
-  //   channelId,
-  //   videoId
-  // }: VideoSelectionArgs) => {
-  //   const channel = channels.find(
-  //     (channel) => channel.channelId === channelId
-  //   ) || { videos: [] };
-  //   const video = channel.videos.find(
-  //     (video: VideoInterface) => video.videoId === videoId
-  //   );
-  //   const newRelatedVideos = channel.videos.filter(
-  //     (video: VideoInterface) => video.videoId !== videoId
-  //   );
+  const onVideoClick: (videoId: string) => void = (videoId: string) => {
+    const video = videos.find((video: Video) => video.videoId === videoId);
 
-  //   setSelectedVideo(video || null);
-  //   setRelatedVideos(newRelatedVideos);
-  // };
+    setSelectedVideo(video || null);
+  };
 
   const onVideoSearch: (searchQuery: string) => void = (
     searchQuery: string
@@ -76,28 +62,6 @@ const App: React.FC = () => {
   };
 
   const debouncedSearchVideoFunc = debounce(onVideoSearch, DEBOUNCE_TIME);
-
-  const backToHomepage: () => void = () => {
-    setSelectedVideo(null);
-    setRelatedVideos([]);
-  };
-
-  const renderPage = () => {
-    if (!!selectedVideo) {
-      return <VideoPage video={selectedVideo} relatedVideos={relatedVideos} />;
-    }
-    return <HomePage key={videos.length} videos={videos} />;
-  };
-
-  // const renderBackButton: () => React.ReactNode | void = () => {
-  //   if (!!selectedVideo) {
-  //     return (
-  //       <p className="back-button-wrapper">
-  //         <a onClick={backToHomepage}>Back to homepage</a>
-  //       </p>
-  //     );
-  //   }
-  // };
 
   const renderErrorMessage: () => React.ReactNode = () => {
     if (!!errorMessage) {
@@ -111,31 +75,26 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="App">
-      <h2 className="app-name">
-        <a onClick={backToHomepage}>Tedx Talks Player</a>
-      </h2>
-      <AppProvider
-        value={{
-          onVideoSelect: () => {},
-          onVideoSearch: debouncedSearchVideoFunc
-        }}
-      >
-        <SearchBar />
-        {renderErrorMessage()}
-        {renderPage()}
-      </AppProvider>
-      <footer>
-        <div>
-          <span>Made with</span> <span className="icon-love" />{" "}
-          <span>
-            by{" "}
-            <a href="https://github.com/analizapandac" target="_blank">
-              Ana Liza Pandac
-            </a>
-          </span>
+    <div>
+      <TedxBackground />
+      {loaded ? (
+        <div className="app-wrapper">
+          <div className="app-content">
+            {selectedVideo ? <VideoPlayer video={selectedVideo} /> : null}
+            <div className="sidebar">
+              <SearchBar onSearch={debouncedSearchVideoFunc} />
+              <VideoList
+                videos={videos}
+                selectedVideo={selectedVideo}
+                onVideoClick={onVideoClick}
+              />
+            </div>
+          </div>
+          <Footer />
         </div>
-      </footer>
+      ) : (
+        <LoadingPage />
+      )}
     </div>
   );
 };

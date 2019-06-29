@@ -1,0 +1,1 @@
+export { TedxBackground } from './TedxBackground.tsx';

@@ -1,0 +1,89 @@
+@import '../../colors';
+
+.video-list-component {
+  background: $transparent-red;
+  width: 100%;
+  z-index: 1;
+  padding: 1rem;
+  overflow: hidden;
+  opacity: 0.7;
+  transition: opacity 0.3s;
+
+  .title {
+    margin: 0;
+    margin-bottom: 1rem;
+  }
+
+  ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    li {
+      position: relative;
+      margin-bottom: 1rem;
+      border: 1px solid transparent;
+      transition: border 0.3s;
+      cursor: pointer;
+      min-height: 170px;
+
+      .thumbnail-wrapper {
+        object-fit: cover;
+        width: 100%;
+
+        img {
+          width: 100%;
+          max-width: 100%;
+        }
+      }
+
+      .overlay,
+      .button-wrapper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding: 1rem;
+        background: rgba(6, 3, 1, 0.5);
+        display: flex;
+        align-items: flex-end;
+        overflow: hidden;
+        transition: all 0.3s;
+      }
+
+      .button-wrapper {
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        background: none;
+      }
+
+      .video-title {
+        margin: 0;
+        font-weight: 500;
+        line-height: 1.4;
+        font-size: 0.9rem;
+      }
+    }
+  }
+
+  &:hover {
+    opacity: 1;
+
+    li:hover {
+      border-color: $red;
+
+      .overlay {
+        background: rgba(6, 3, 1, 0.3);
+      }
+
+      .button-wrapper {
+        opacity: 1;
+      }
+    }
+  }
+}

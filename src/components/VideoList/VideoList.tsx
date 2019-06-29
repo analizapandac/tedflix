@@ -1,55 +1,39 @@
 import React from "react";
 import { Video } from "../../interfaces/Video";
-import { AppConsumer } from "../../contexts/AppContext";
-import { humanizeDate } from "../../utils/date-helpers";
-import "./VideoList.css";
+import "./VideoList.scss";
 
 interface VideoListProps {
   videos: Video[];
-  showSmallThumbnails?: boolean;
+  selectedVideo: Video;
+  onVideoClick: (videoId: string) => void;
 }
 
-export const VideoList: React.SFC<VideoListProps> = ({
+export const VideoList: React.FC<VideoListProps> = ({
   videos,
-  showSmallThumbnails = false
+  selectedVideo,
+  onVideoClick
 }: VideoListProps) => {
   return (
-    <ul className="video-list-component">
-      <AppConsumer>
-        {({ onVideoSelect }) =>
-          videos.map(
-            ({
-              videoId,
-              title,
-              publishedAt,
-              smallThumbnailURL,
-              mediumThumbnailURL,
-              channelId
-            }) => {
-              return (
-                <li key={videoId}>
-                  <a onClick={() => onVideoSelect({ channelId, videoId })}>
-                    <img
-                      src={
-                        showSmallThumbnails
-                          ? smallThumbnailURL
-                          : mediumThumbnailURL
-                      }
-                      alt=""
-                    />
-                    <div className="video-details">
-                      <h5 className="video-title">{title}</h5>
-                      <p className="published-date">
-                        published {humanizeDate(publishedAt)}
-                      </p>
-                    </div>
-                  </a>
-                </li>
-              );
-            }
-          )
-        }
-      </AppConsumer>
-    </ul>
+    <div className="video-list-component">
+      <h3 className="title">Related talks</h3>
+      <ul>
+        {videos.map(({ title, videoId, mediumThumbnailURL }) => {
+          if (selectedVideo && videoId === selectedVideo.videoId) return null;
+          return (
+            <li key={videoId} onClick={() => onVideoClick(videoId)}>
+              <div className="thumbnail-wrapper">
+                <img src={mediumThumbnailURL} alt={title} />
+              </div>
+              <div className="overlay">
+                <h4 className="video-title">{title}</h4>
+              </div>
+              <div className="button-wrapper">
+                <img src="./yt-play-button.png" alt="Play video" />
+              </div>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
   );
 };

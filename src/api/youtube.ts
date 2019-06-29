@@ -1,5 +1,6 @@
 import axios from "axios";
 import { Video } from "../interfaces/Video";
+import { shuffleVideos } from '../utils/array-helpers';
 
 export const QUOTA_EXCEEDED_ERROR =
   "Youtube API Error: Maximum quota limit exceeded for today. Try again tomorrow.";
@@ -50,7 +51,8 @@ export const fetchDefaultVideos: () => Promise<Video[]> = async () => {
       });
     });
 
-    return videos;
+    const shuffled = shuffleVideos(videos);
+    return shuffled.slice(0, 6);
   } catch (e) {
     if (e.response.status === 404) {
       return Promise.reject(NOT_FOUND_ERROR);
@@ -62,7 +64,7 @@ export const fetchDefaultVideos: () => Promise<Video[]> = async () => {
 export const fetchChannelVideos: (
   searchQuery?: string
 ) => Promise<Video[]> = async (searchQuery?: string) => {
-  let requestURL = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=UCsT0YIqwnpJCM-mx7-gSA4Q&type=video&key=${API_KEY}&maxResults=10&videoEmbeddable=true`;
+  let requestURL = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=UCsT0YIqwnpJCM-mx7-gSA4Q&type=video&key=${API_KEY}&maxResults=5&videoEmbeddable=true`;
   if (!!searchQuery) {
     requestURL += `&q=${searchQuery}`;
   }

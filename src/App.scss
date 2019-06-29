@@ -1,0 +1,62 @@
+@import "colors";
+
+html,
+body {
+  width: 100vw;
+  height: 100vh;
+  background: $black;
+  color: $white;
+  text-shadow: -1px 2px 5px $black;
+  font-size: 16px;
+  line-height: 1.3;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+.app-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  overflow-x: hidden;
+}
+
+.app-content {
+  display: flex;
+  flex-wrap: wrap;
+  flex: 1;
+  justify-content: space-between;
+  overflow: hidden;
+  overflow-y: auto;
+  padding-bottom: 5rem;
+}
+
+$related-talks-width: 400px;
+// Related talks
+.sidebar {
+  position: relative;
+  // max-width: calc(100vw - 75vw);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  max-width: $related-talks-width;
+  min-width: 200px;
+}
+

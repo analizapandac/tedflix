@@ -1,0 +1,60 @@
+@import "../../colors";
+
+.search-component {
+  background: $transparent-red;
+  width: 100%;
+  padding: 1rem;
+
+  .search-form {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    align-items: flex-end;
+    color: $dirty-white;
+
+    div {
+      flex: 1;
+    }
+
+    label {
+      margin-bottom: 0.25rem;
+      font-size: 0.75rem;
+      display: block;
+    }
+
+    $field-height: 2rem;
+    input {
+      height: $field-height;
+      flex: 1;
+      padding: 0 0.5rem;
+      background: transparent;
+      border: 1px solid $transparent-red;
+      color: $white;
+      width: 100%;
+    }
+
+    button {
+      background: transparent;
+      border: 1px solid $transparent-red;
+      color: $dirty-white;
+      height: $field-height;
+      padding: 0 2rem;
+
+      img {
+        max-width: 1rem;
+      }
+
+      &:hover,
+      &:active,
+      &:focus {
+        color: $white;
+        cursor: pointer;
+        background: $transparent-red;
+
+        img {
+          filter: brightness(0) invert(1);
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,33 @@
+@import '../../colors';
+
+.footer-component {
+  background: #080605;
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  text-shadow: none;
+
+  .footer-content {
+    opacity: 0.5;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    > div {
+      margin-right: 0.25rem;
+    }
+
+    a {
+      color: $white;
+      text-decoration: underline;
+    }
+
+    .icon-love {
+      color: $red;
+    }
+  }
+}

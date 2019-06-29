@@ -1,39 +1,38 @@
 import React from "react";
-import "./SearchBar.css";
-import { AppConsumer } from "../../contexts/AppContext";
+import "./SearchBar.scss";
 
-export const SearchBar: React.FC = () => {
-  const [searchQuery, setSearchQuery] = React.useState<string>('');
+interface SearchBarProps {
+  onSearch: (searchQuery: string) => void;
+}
 
-  const onSearchQueryChange: (
-    event: React.ChangeEvent<HTMLInputElement>,
-    callback: Function
-  ) => void = (
-    event: React.ChangeEvent<HTMLInputElement>,
-    callback: Function
+export const SearchBar: React.FC<SearchBarProps> = ({
+  onSearch
+}: SearchBarProps) => {
+  const [searchQuery, setSearchQuery] = React.useState("");
+
+  const onSubmit: (event: React.FormEvent<HTMLFormElement>) => void = (
+    event: React.FormEvent<HTMLFormElement>
   ) => {
-    setSearchQuery(event.target.value);
-    callback();
+    event.preventDefault();
+    onSearch(searchQuery);
   };
 
   return (
     <div className="search-component">
-      <AppConsumer>
-        {({ onVideoSearch }) => (
-          <div className="search-bar">
-            <input
-              type="text"
-              onChange={(e) =>
-                onSearchQueryChange(e, () => onVideoSearch(e.target.value))
-              }
-              placeholder="Search Tedx talks from Youtube"
-            />
-            <button onClick={(e) => onVideoSearch(searchQuery)}>
-              Search
-            </button>
-          </div>
-        )}
-      </AppConsumer>
+      <form className="search-form" onSubmit={onSubmit}>
+        <div>
+          <label htmlFor="search-field">Search Tedx talks from Youtube</label>
+          <input
+            id="search-field"
+            onChange={(event) => setSearchQuery(event.target.value)}
+            type="text"
+            placeholder="Search talks"
+          />
+        </div>
+        <button type="submit">
+          <img src="./icon-search.png" alt="Search" />
+        </button>
+      </form>
     </div>
   );
 };
