@@ -1,12 +1,8 @@
 import React from "react";
 import debounce from "lodash.debounce";
 import "./App.css";
-import { Channel, ChannelRequestProps } from "./interfaces/Channel";
-import {
-  Video as VideoInterface,
-  VideoSelectionArgs
-} from "./interfaces/Video";
-import { fetchChannelVideos, QUOTA_EXCEEDED_ERROR } from "./api/youtube";
+import { Video, VideoSelectionArgs } from "./interfaces/Video";
+import { fetchChannelVideos, fetchDefaultVideos } from "./api/youtube";
 import { AppProvider } from "./contexts/AppContext";
 import { SearchBar } from "./components/SearchBar";
 import { HomePage } from "./components/HomePage";
@@ -19,44 +15,31 @@ const DEFAULT_CHANNELS = [
   }
 ];
 
-// {
-//   channelId: "UCsT0YIqwnpJCM-mx7-gSA4Q",
-//   defaultVideoId: "52lZmIafep4"
-// },
-
-// {
-//   channelId: 'UCnUYZLuoy1rq1aVMwx4aTzw'
-// }
-
 const DEBOUNCE_TIME = 500;
 
 const App: React.FC = () => {
-  const [channels, setChannels] = React.useState<Channel[]>([]);
-  const [
-    selectedVideo,
-    setSelectedVideo
-  ] = React.useState<VideoInterface | null>(null);
-  const [relatedVideos, setRelatedVideos] = React.useState<VideoInterface[]>();
+  const [videos, setVideos] = React.useState<Video[]>([]);
+  const [selectedVideo, setSelectedVideo] = React.useState<Video | null>(null);
+  const [relatedVideos, setRelatedVideos] = React.useState<Video[]>();
   const [errorMessage, setErrorMessage] = React.useState<string>();
+
+  const getDefaultVideos: () => void = () => {
+    fetchDefaultVideos()
+      .then(function(channelVideos) {
+        setVideos(channelVideos);
+      })
+      .catch((err) => {
+        console.log("error", err);
+        setErrorMessage(err);
+      });
+  };
 
   const fetchVideos: (searchQuery?: string) => void = (
     searchQuery?: string
   ) => {
-    Promise.all(
-      DEFAULT_CHANNELS.map(
-        ({ channelId, defaultVideoId = "" }: ChannelRequestProps) => {
-          return fetchChannelVideos({ channelId, defaultVideoId, searchQuery })
-            .then((channel) => {
-              return channel;
-            })
-            .catch((err) => {
-              return Promise.reject(err);
-            });
-        }
-      )
-    )
-      .then(function(channelResponses) {
-        setChannels(channelResponses);
+    fetchChannelVideos(searchQuery)
+      .then(function(channelVideos) {
+        setVideos(channelVideos);
       })
       .catch((err) => {
         console.log("error", err);
@@ -65,27 +48,26 @@ const App: React.FC = () => {
   };
 
   React.useEffect(() => {
-    console.log("running useEffect", channels.length);
-    fetchVideos();
-  }, [channels.length]);
+    getDefaultVideos();
+  }, [videos.length]);
 
-  const onVideoSelect: ({ channelId, videoId }: VideoSelectionArgs) => void = ({
-    channelId,
-    videoId
-  }: VideoSelectionArgs) => {
-    const channel = channels.find(
-      (channel) => channel.channelId === channelId
-    ) || { videos: [] };
-    const video = channel.videos.find(
-      (video: VideoInterface) => video.videoId === videoId
-    );
-    const newRelatedVideos = channel.videos.filter(
-      (video: VideoInterface) => video.videoId !== videoId
-    );
+  // const onVideoSelect: ({ channelId, videoId }: VideoSelectionArgs) => void = ({
+  //   channelId,
+  //   videoId
+  // }: VideoSelectionArgs) => {
+  //   const channel = channels.find(
+  //     (channel) => channel.channelId === channelId
+  //   ) || { videos: [] };
+  //   const video = channel.videos.find(
+  //     (video: VideoInterface) => video.videoId === videoId
+  //   );
+  //   const newRelatedVideos = channel.videos.filter(
+  //     (video: VideoInterface) => video.videoId !== videoId
+  //   );
 
-    setSelectedVideo(video || null);
-    setRelatedVideos(newRelatedVideos);
-  };
+  //   setSelectedVideo(video || null);
+  //   setRelatedVideos(newRelatedVideos);
+  // };
 
   const onVideoSearch: (searchQuery: string) => void = (
     searchQuery: string
@@ -104,7 +86,7 @@ const App: React.FC = () => {
     if (!!selectedVideo) {
       return <VideoPage video={selectedVideo} relatedVideos={relatedVideos} />;
     }
-    return <HomePage key={channels.length} channels={channels} />;
+    return <HomePage key={videos.length} videos={videos} />;
   };
 
   // const renderBackButton: () => React.ReactNode | void = () => {
@@ -130,10 +112,12 @@ const App: React.FC = () => {
 
   return (
     <div className="App">
-      <h2 className="app-name"><a onClick={backToHomepage}>Tedx Talks Player</a></h2>
+      <h2 className="app-name">
+        <a onClick={backToHomepage}>Tedx Talks Player</a>
+      </h2>
       <AppProvider
         value={{
-          onVideoSelect,
+          onVideoSelect: () => {},
           onVideoSearch: debouncedSearchVideoFunc
         }}
       >
@@ -145,7 +129,10 @@ const App: React.FC = () => {
         <div>
           <span>Made with</span> <span className="icon-love" />{" "}
           <span>
-            by <a href="https://github.com/analizapandac" target="_blank">Ana Liza Pandac</a>
+            by{" "}
+            <a href="https://github.com/analizapandac" target="_blank">
+              Ana Liza Pandac
+            </a>
           </span>
         </div>
       </footer>

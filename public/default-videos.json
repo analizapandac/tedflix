@@ -1,0 +1,343 @@
+{
+  "kind": "youtube#searchListResponse",
+  "etag": "\"Bdx4f4ps3xCOOo1WZ91nTLkRZ_c/vlS8mCpaeDt2uvgbOw-WEuP3Vlo\"",
+  "nextPageToken": "CAoQAA",
+  "regionCode": "MY",
+  "pageInfo": {
+   "totalResults": 136,
+   "resultsPerPage": 10
+  },
+  "items": [
+   {
+    "kind": "youtube#searchResult",
+    "etag": "\"Bdx4f4ps3xCOOo1WZ91nTLkRZ_c/04LT4lSPA5zKeOyvWQ5tSzc1PMI\"",
+    "id": {
+     "kind": "youtube#video",
+     "videoId": "xp0O2vi8DX4"
+    },
+    "snippet": {
+     "publishedAt": "2014-10-28T15:12:32.000Z",
+     "channelId": "UCsT0YIqwnpJCM-mx7-gSA4Q",
+     "title": "How to motivate yourself to change your behavior | Tali Sharot | TEDxCambridge",
+     "description": "What does make us change our actions? Tali Sharot reveals three ingredients to doing what's good for yourself.\n\nDr. Tali Sharot is a neuroscientist at University College London and the director of the Affective Brain Lab. She is a faculty member of the department of Experimental Psychology, a Wellcome Trust Fellow, and currently a visiting Professor at Harvard Medical School. Her research focuses on how emotion, motivation, and social factors influence our expectations, decisions, and memories. \n\nThis talk was given at a TEDx event using the TED conference format but independently organized by a local community. Learn more at https://www.ted.com/tedx",
+     "thumbnails": {
+      "default": {
+       "url": "https://i.ytimg.com/vi/xp0O2vi8DX4/default.jpg",
+       "width": 120,
+       "height": 90
+      },
+      "medium": {
+       "url": "https://i.ytimg.com/vi/xp0O2vi8DX4/mqdefault.jpg",
+       "width": 320,
+       "height": 180
+      },
+      "high": {
+       "url": "https://i.ytimg.com/vi/xp0O2vi8DX4/hqdefault.jpg",
+       "width": 480,
+       "height": 360
+      }
+     },
+     "channelTitle": "TEDx Talks",
+     "liveBroadcastContent": "none"
+    }
+   },
+   {
+    "kind": "youtube#searchResult",
+    "etag": "\"Bdx4f4ps3xCOOo1WZ91nTLkRZ_c/6f4q6NVHWicMSJqVUmVBlFnOvbk\"",
+    "id": {
+     "kind": "youtube#video",
+     "videoId": "A6Dkt7zyImk"
+    },
+    "snippet": {
+     "publishedAt": "2019-05-11T14:04:09.000Z",
+     "channelId": "UCsT0YIqwnpJCM-mx7-gSA4Q",
+     "title": "Intermittent Fasting: Transformational Technique | Cynthia Thurlow | TEDxGreenville",
+     "description": "Two-thirds of women 40-59 years old are overweight and more than 1/2 are obese. Intermittent fasting can help women lose weight effectively. And can have profound impact on bio-physical profiles, but also improved self esteem and interpersonal relationships. It is easy to implement, it is inexpensive and flexible.\n\nCynthia is a Western medicine trained nurse practitioner and functional nutritionist who is passionate about female hormonal health. She believes that the inherent power of food and nutrition can be your greatest asset to your health and wellness journey. She works 1:1 with female clients and is the creator of Wholistic Blueprint a 6-week signature program for female hormonal health, she's also the co-host of Everyday Wellness podcast and a recurring segment contributor on her local ABC affiliate in Washington, DC. This talk was given at a TEDx event using the TED conference format but independently organized by a local community. Learn more at https://www.ted.com/tedx",
+     "thumbnails": {
+      "default": {
+       "url": "https://i.ytimg.com/vi/A6Dkt7zyImk/default.jpg",
+       "width": 120,
+       "height": 90
+      },
+      "medium": {
+       "url": "https://i.ytimg.com/vi/A6Dkt7zyImk/mqdefault.jpg",
+       "width": 320,
+       "height": 180
+      },
+      "high": {
+       "url": "https://i.ytimg.com/vi/A6Dkt7zyImk/hqdefault.jpg",
+       "width": 480,
+       "height": 360
+      }
+     },
+     "channelTitle": "TEDx Talks",
+     "liveBroadcastContent": "none"
+    }
+   },
+   {
+    "kind": "youtube#searchResult",
+    "etag": "\"Bdx4f4ps3xCOOo1WZ91nTLkRZ_c/6-NkZyItLnc3RUZiz2XLakQJwyk\"",
+    "id": {
+     "kind": "youtube#video",
+     "videoId": "H6n3iNh4XLI"
+    },
+    "snippet": {
+     "publishedAt": "2015-05-07T14:17:32.000Z",
+     "channelId": "UCsT0YIqwnpJCM-mx7-gSA4Q",
+     "title": "How to Have a Good Conversation | Celeste Headlee | TEDxCreativeCoast",
+     "description": "When your job hinges on how well you talk to people, you learn a lot about how to have great conversations – and most of us don’t converse very well. A great conversation requires a balance between talking and listening. This balance is important because bad communication leads to bad relationships, at home, at work, everywhere.\n\nCeleste Headlee has worked in public radio since 1999, as a reporter, host, and correspondent. She was the Midwest Correspondent for NPR before becoming the co-host of the PRI show The Takeaway. She also guest hosted a number of NPR shows including Tell Me More, Talk of the Nation, Weekend All Things Considered, and Weekend Edition. \r\n \r\nCeleste holds multiple degrees in music and still performs as a professional opera singer. She's the granddaughter of composer William Grant Still, the Dean of African American Composers. Celeste is an avid hiker, biker, paddler and dog walker.\n\nThis talk was given at a TEDx event using the TED conference format but independently organized by a local community. Learn more at http://ted.com/tedx",
+     "thumbnails": {
+      "default": {
+       "url": "https://i.ytimg.com/vi/H6n3iNh4XLI/default.jpg",
+       "width": 120,
+       "height": 90
+      },
+      "medium": {
+       "url": "https://i.ytimg.com/vi/H6n3iNh4XLI/mqdefault.jpg",
+       "width": 320,
+       "height": 180
+      },
+      "high": {
+       "url": "https://i.ytimg.com/vi/H6n3iNh4XLI/hqdefault.jpg",
+       "width": 480,
+       "height": 360
+      }
+     },
+     "channelTitle": "TEDx Talks",
+     "liveBroadcastContent": "none"
+    }
+   },
+   {
+    "kind": "youtube#searchResult",
+    "etag": "\"Bdx4f4ps3xCOOo1WZ91nTLkRZ_c/ggJLKJJco0xST_duVpcmBoXpYNg\"",
+    "id": {
+     "kind": "youtube#video",
+     "videoId": "esPRsT-lmw8"
+    },
+    "snippet": {
+     "publishedAt": "2013-10-16T12:12:32.000Z",
+     "channelId": "UCsT0YIqwnpJCM-mx7-gSA4Q",
+     "title": "The most important lesson from 83,000 brain scans | Daniel Amen | TEDxOrangeCoast",
+     "description": "Never miss a talk! SUBSCRIBE to the TEDx channel: http://bit.ly/1FAg8hB\n\nIn the spirit of ideas worth spreading, TEDx is a program of local, self-organized events that bring people together to share a TED-like experience. At a TEDx event, TEDTalks video and live speakers combine to spark deep discussion and connection in a small group. These local, self-organized events are branded TEDx, where x = independently organized TED event. The TED Conference provides general guidance for the TEDx program, but individual TEDx events are self-organized.* (*Subject to certain rules and regulations)",
+     "thumbnails": {
+      "default": {
+       "url": "https://i.ytimg.com/vi/esPRsT-lmw8/default.jpg",
+       "width": 120,
+       "height": 90
+      },
+      "medium": {
+       "url": "https://i.ytimg.com/vi/esPRsT-lmw8/mqdefault.jpg",
+       "width": 320,
+       "height": 180
+      },
+      "high": {
+       "url": "https://i.ytimg.com/vi/esPRsT-lmw8/hqdefault.jpg",
+       "width": 480,
+       "height": 360
+      }
+     },
+     "channelTitle": "TEDx Talks",
+     "liveBroadcastContent": "none"
+    }
+   },
+   {
+    "kind": "youtube#searchResult",
+    "etag": "\"Bdx4f4ps3xCOOo1WZ91nTLkRZ_c/xVk1sBITaEswQ9_i6sMSxqpSKJM\"",
+    "id": {
+     "kind": "youtube#video",
+     "videoId": "Lp7E973zozc"
+    },
+    "snippet": {
+     "publishedAt": "2011-06-11T22:43:26.000Z",
+     "channelId": "UCsT0YIqwnpJCM-mx7-gSA4Q",
+     "title": "How to stop screwing yourself over | Mel Robbins | TEDxSF",
+     "description": "Never miss a talk! SUBSCRIBE to the TEDx channel: http://bit.ly/1FAg8hB\n\nMel Robbins is a married working mother of three, an ivy-educated criminal lawyer, and one of the top career and relationship experts in America.  Widely respected for her grab-'em-by-the-collar advice and tough love, Robbins drills through the mental clutter that stands between people and what they want.  Her approach is smart, effective and entertaining. Five days a week, Mel hosts her own syndicated radio show The Mel Robbins Show, discussing hot topics and giving advice to callers across America.  She is starring in a new series, In-Laws, airing this summer on A&E. In addition, she writes a monthly column for Success Magazine, is a former CNBC contributor and is the co-founder of Advice for Living, Inc., which develops products and television programming with experts in the wellness, health, relationship and career categories.\n\nMost nights, once the kids are in bed, you'll find Mel at home with a bourbon on the rocks and her Australian Shepherd at her feet, writing about life, love and everything else on her award-winning blog: www.melrobbins.com\n\nevent video by: http://repertoireproductions.com/",
+     "thumbnails": {
+      "default": {
+       "url": "https://i.ytimg.com/vi/Lp7E973zozc/default.jpg",
+       "width": 120,
+       "height": 90
+      },
+      "medium": {
+       "url": "https://i.ytimg.com/vi/Lp7E973zozc/mqdefault.jpg",
+       "width": 320,
+       "height": 180
+      },
+      "high": {
+       "url": "https://i.ytimg.com/vi/Lp7E973zozc/hqdefault.jpg",
+       "width": 480,
+       "height": 360
+      }
+     },
+     "channelTitle": "TEDx Talks",
+     "liveBroadcastContent": "none"
+    }
+   },
+   {
+    "kind": "youtube#searchResult",
+    "etag": "\"Bdx4f4ps3xCOOo1WZ91nTLkRZ_c/i27w5KmE0kePyz_vVjt3RTUudIg\"",
+    "id": {
+     "kind": "youtube#video",
+     "videoId": "KZIGekgoaz4"
+    },
+    "snippet": {
+     "publishedAt": "2015-05-08T20:17:19.000Z",
+     "channelId": "UCsT0YIqwnpJCM-mx7-gSA4Q",
+     "title": "Happy Brain: How to Overcome Our Neural Predispositions to Suffering | Amit Sood, MD | TEDxUNI",
+     "description": "Twenty years ago, Dr. Amit Sood, a Professor of Medicine at Mayo Clinic, came to the U.S. thinking he was coming to the Disneyland of the world. He expected everyone here to be very happy. What he saw surprised and shocked him. In this funny, fast-moving, and deeply insightful talk, Dr. Sood shares his journey over two decades and across two continents, finding a way to help us outsmart our neural predispositions to suffering. In the process, he takes us on a back-stage tour of the human brain and outlines the gist of a structured program he is taking globally to decrease stress and improve focus, resilience, and happiness.\n\nAmit Sood, MD, is Professor of Medicine at Mayo Clinic and Director of Mayo's Complementary and Integrative Medicine program. He is the author of The Mayo Clinic Guide to Stress-Free Living and The Mayo Clinic Guide to Happiness. He is one of the most sought-after speakers at Mayo. He has received several NIH and foundation awards to test and implement integrative and mind-body approaches within medicine. Dr. Sood received the 2010 Distinguished Service Award, the 2010 Innovator of the Year Award, and the 2013 Outstanding Physician Award from Mayo Clinic.\r\n\n\nThis talk was given at a TEDx event using the TED conference format but independently organized by a local community. Learn more at http://ted.com/tedx",
+     "thumbnails": {
+      "default": {
+       "url": "https://i.ytimg.com/vi/KZIGekgoaz4/default.jpg",
+       "width": 120,
+       "height": 90
+      },
+      "medium": {
+       "url": "https://i.ytimg.com/vi/KZIGekgoaz4/mqdefault.jpg",
+       "width": 320,
+       "height": 180
+      },
+      "high": {
+       "url": "https://i.ytimg.com/vi/KZIGekgoaz4/hqdefault.jpg",
+       "width": 480,
+       "height": 360
+      }
+     },
+     "channelTitle": "TEDx Talks",
+     "liveBroadcastContent": "none"
+    }
+   },
+   {
+    "kind": "youtube#searchResult",
+    "etag": "\"Bdx4f4ps3xCOOo1WZ91nTLkRZ_c/8X6U_AgRF0d_qlyVDKr5Uth7nSk\"",
+    "id": {
+     "kind": "youtube#video",
+     "videoId": "8s3bdVxuFBs"
+    },
+    "snippet": {
+     "publishedAt": "2015-11-11T16:38:24.000Z",
+     "channelId": "UCsT0YIqwnpJCM-mx7-gSA4Q",
+     "title": "What if you could trade a paperclip for a house? | Kyle MacDonald | TEDxVienna",
+     "description": "Kyle MacDonald details just exactly how he traded up from one red paperclip to a house, in only a year! It's an unlikely and amazing journey with lots of surprises along the way.\n\nMore information on http://www.tedxvienna.at\n\nKyle MacDonald started with a red paperclip and traded it for a pen. Then traded the pen for a doorknob. And so on!\n\nThis talk was given at a TEDx event using the TED conference format but independently organized by a local community. Learn more at http://ted.com/tedx",
+     "thumbnails": {
+      "default": {
+       "url": "https://i.ytimg.com/vi/8s3bdVxuFBs/default.jpg",
+       "width": 120,
+       "height": 90
+      },
+      "medium": {
+       "url": "https://i.ytimg.com/vi/8s3bdVxuFBs/mqdefault.jpg",
+       "width": 320,
+       "height": 180
+      },
+      "high": {
+       "url": "https://i.ytimg.com/vi/8s3bdVxuFBs/hqdefault.jpg",
+       "width": 480,
+       "height": 360
+      }
+     },
+     "channelTitle": "TEDx Talks",
+     "liveBroadcastContent": "none"
+    }
+   },
+   {
+    "kind": "youtube#searchResult",
+    "etag": "\"Bdx4f4ps3xCOOo1WZ91nTLkRZ_c/mc8kHUq-N_Kl2cu_uUv9brlcpjk\"",
+    "id": {
+     "kind": "youtube#video",
+     "videoId": "w-HYZv6HzAs"
+    },
+    "snippet": {
+     "publishedAt": "2012-01-13T19:42:36.000Z",
+     "channelId": "UCsT0YIqwnpJCM-mx7-gSA4Q",
+     "title": "The skill of self confidence | Dr. Ivan Joseph | TEDxRyersonU",
+     "description": "Never miss a talk! SUBSCRIBE to the TEDx channel: http://bit.ly/1FAg8hB\n\nAs the Athletic Director and head coach of the Varsity Soccer team at Ryerson University, Dr. Joseph is often asked what skills he is searching for as a recruiter: is it speed? Strength? Agility? In Dr. Joseph's TEDx Talk, he explores self confidence and how it is not just the most important skill in athletics, but in our lives.\n \nIn the spirit of ideas worth spreading, TEDx is a program of local, self-organized events that bring people together to share a TED-like experience. At a TEDx event, TEDTalks video and live speakers combine to spark deep discussion and connection in a small group. These local, self-organized events are branded TEDx, where x = independently organized TED event. The TED Conference provides general guidance for the TEDx program, but individual TEDx events are self-organized.* (*Subject to certain rules and regulations)",
+     "thumbnails": {
+      "default": {
+       "url": "https://i.ytimg.com/vi/w-HYZv6HzAs/default.jpg",
+       "width": 120,
+       "height": 90
+      },
+      "medium": {
+       "url": "https://i.ytimg.com/vi/w-HYZv6HzAs/mqdefault.jpg",
+       "width": 320,
+       "height": 180
+      },
+      "high": {
+       "url": "https://i.ytimg.com/vi/w-HYZv6HzAs/hqdefault.jpg",
+       "width": 480,
+       "height": 360
+      }
+     },
+     "channelTitle": "TEDx Talks",
+     "liveBroadcastContent": "none"
+    }
+   },
+   {
+    "kind": "youtube#searchResult",
+    "etag": "\"Bdx4f4ps3xCOOo1WZ91nTLkRZ_c/b4qog3Gs_hrr8dAlo_v8a7I_d6U\"",
+    "id": {
+     "kind": "youtube#video",
+     "videoId": "-wkdH_wluhw"
+    },
+    "snippet": {
+     "publishedAt": "2016-07-12T15:33:45.000Z",
+     "channelId": "UCsT0YIqwnpJCM-mx7-gSA4Q",
+     "title": "What animals are thinking and feeling, and why it should matter | Carl Safina | TEDxMidAtlantic",
+     "description": "Carl Safina takes us inside the lives and minds of animals around the world, witnessing their profound capacity for perception, thought and emotion, showing why the word \"it\" is often inappropriate as we discover \"who\" they really are. And yet, we are wiping out the very animals we should celebrate; we are the flood coming for Noah's Ark. Carl leaves us with a difficult question: Do we have what it takes to let life on earth survive?\n\nCarl Safina’s work has been recognized with MacArthur, Pew, and Guggenheim Fellowships, and his writing has won the Lannan Literary Award and the John Burroughs, James Beard, and George Rabb medals. He has a PhD in ecology from Rutgers University. Safina is the inaugural endowed professor for nature and humanity at Stony Brook University, where he co-chairs the steering committee of the Alan Alda Center for Communicating Science and is founding president of the not-for-profit Safina Center. He hosted the 10-part PBS series Saving the Ocean with Carl Safina. His writing appears in The New York Times, National Geographic, Audubon and other periodicals, and on the Web at National Geographic News and Views, Huffington Post, and CNN.com. Carl Safina’s writing shows how humanity is changing the natural world and what those changes mean for wildlife and for people.\n\nThis talk was given at a TEDx event using the TED conference format but independently organized by a local community. Learn more at http://ted.com/tedx",
+     "thumbnails": {
+      "default": {
+       "url": "https://i.ytimg.com/vi/-wkdH_wluhw/default.jpg",
+       "width": 120,
+       "height": 90
+      },
+      "medium": {
+       "url": "https://i.ytimg.com/vi/-wkdH_wluhw/mqdefault.jpg",
+       "width": 320,
+       "height": 180
+      },
+      "high": {
+       "url": "https://i.ytimg.com/vi/-wkdH_wluhw/hqdefault.jpg",
+       "width": 480,
+       "height": 360
+      }
+     },
+     "channelTitle": "TEDx Talks",
+     "liveBroadcastContent": "none"
+    }
+   },
+   {
+    "kind": "youtube#searchResult",
+    "etag": "\"Bdx4f4ps3xCOOo1WZ91nTLkRZ_c/eqVT6MCOOjT1CtxHspc_Qz7cf90\"",
+    "id": {
+     "kind": "youtube#video",
+     "videoId": "EirlZ7fy3bE"
+    },
+    "snippet": {
+     "publishedAt": "2018-05-29T21:40:48.000Z",
+     "channelId": "UCsT0YIqwnpJCM-mx7-gSA4Q",
+     "title": "Cultivating Unconditional Self-Worth | Adia Gooden | TEDxDePaulUniversity",
+     "description": "When a person demands perfection of herself or himself, anything less can feel like failure. Adia Gooden knows this from experience. In addition to her work as a staff psychologist at the University of Chicago, she’s learned in her own life how to break negative thought patterns and live more freely. She shares those lessons in her talk: “Cultivating Unconditional Self-Worth.”\n\nGooden is a licensed clinical psychologist. She earned her bachelor’s degree in psychology from Stanford University and her doctorate in clinical community psychology from DePaul College of Science and Health in 2013. Gooden is currently a staff psychologist and coordinator for multicultural outreach and support at The University of Chicago’s Student Counseling Service. In this role, she provides individual, group and couple therapy to undergraduate and graduate students. She also conducts outreach workshops for students of color and continuing education training for clinicians on working with black clients. Gooden authors a blog focused on promoting mental health among black women. She speaks and writes about black women, black couples, black youth and mental health. Gooden is a licensed clinical psychologist. She earned her bachelor’s degree in psychology from Stanford University and her doctorate in clinical community psychology from DePaul College of Science and Health in 2013. Gooden is currently a staff psychologist and coordinator for multicultural outreach and support at The University of Chicago’s Student Counseling Service. In this role, she provides individual, group and couple therapy to undergraduate and graduate students. She also conducts outreach workshops for students of color and continuing education training for clinicians on working with black clients. Gooden authors a blog focused on promoting mental health among black women. She speaks and writes about black women, black couples, black youth and mental health. This talk was given at a TEDx event using the TED conference format but independently organized by a local community. Learn more at https://www.ted.com/tedx",
+     "thumbnails": {
+      "default": {
+       "url": "https://i.ytimg.com/vi/EirlZ7fy3bE/default.jpg",
+       "width": 120,
+       "height": 90
+      },
+      "medium": {
+       "url": "https://i.ytimg.com/vi/EirlZ7fy3bE/mqdefault.jpg",
+       "width": 320,
+       "height": 180
+      },
+      "high": {
+       "url": "https://i.ytimg.com/vi/EirlZ7fy3bE/hqdefault.jpg",
+       "width": 480,
+       "height": 360
+      }
+     },
+     "channelTitle": "TEDx Talks",
+     "liveBroadcastContent": "none"
+    }
+   }
+  ]
+ }
+ 

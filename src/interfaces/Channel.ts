@@ -7,7 +7,5 @@ export interface Channel {
 }
 
 export interface ChannelRequestProps {
-  channelId: string;
-  defaultVideoId?: string;
   searchQuery?:string;
 }

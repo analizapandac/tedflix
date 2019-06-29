@@ -1,20 +1,18 @@
 import React from "react";
-import { Channel as ChannelInterface } from "../../interfaces/Channel";
-import { Channel } from '../Channel';
+import { Video } from "../../interfaces/Video";
 import './HomePage.css';
 
 interface HomePageProps {
-  channels: ChannelInterface[]
+  videos: Video[]
 }
 
 export const HomePage: React.FC<HomePageProps> = ({
-  channels
+  videos
 }: HomePageProps) => {
+  console.log('videos', videos);
   return (
     <div className='home-page-component'>
-      {channels.map(({ channelName, channelId, videos }: ChannelInterface) => {
-        return <Channel key={channelId} channelName={channelName} videos={videos} />
-      })}
+      Fetched {videos.length} videos.
     </div>
   );
 };

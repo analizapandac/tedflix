@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Channel, ChannelRequestProps } from "../interfaces/Channel";
+import { Video } from "../interfaces/Video";
 
 export const QUOTA_EXCEEDED_ERROR =
   "Youtube API Error: Maximum quota limit exceeded for today. Try again tomorrow.";
@@ -25,42 +25,20 @@ interface YoutubeVideo {
   };
 }
 
-export const fetchChannelVideos: ({
-  channelId,
-  defaultVideoId,
-  searchQuery
-}: ChannelRequestProps) => Promise<Channel> = async ({
-  channelId,
-  defaultVideoId,
-  searchQuery
-}: ChannelRequestProps) => {
-  let requestURL = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&type=video&key=${API_KEY}&maxResults=10&videoEmbeddable=true`;
-  if (!!searchQuery) {
-    requestURL += `&q=${searchQuery}`;
-  }
-  if (!!defaultVideoId && !searchQuery) {
-    requestURL += `&relatedToVideoId=${defaultVideoId}`;
-  }
-
+export const fetchDefaultVideos: () => Promise<Video[]> = async () => {
   try {
-    const response = (await axios.get(requestURL)) as {
+    const response = (await axios.get("/default-videos.json")) as {
       data: { items: YoutubeVideo[] };
     };
+
     const {
       data: { items = [] }
     } = response;
 
-    const channel: Channel = {
-      channelName: "",
-      videos: [],
-      channelId: channelId
-    };
+    const videos: Video[] = [];
 
     items.forEach(({ id, snippet }: YoutubeVideo) => {
-      if (channel.channelName === "")
-        channel.channelName = snippet.channelTitle;
-
-      channel.videos.push({
+      videos.push({
         videoId: (id || {}).videoId || "",
         publishedAt: snippet.publishedAt || "",
         title: snippet.title || "",
@@ -72,7 +50,47 @@ export const fetchChannelVideos: ({
       });
     });
 
-    return channel;
+    return videos;
+  } catch (e) {
+    if (e.response.status === 404) {
+      return Promise.reject(NOT_FOUND_ERROR);
+    }
+    return Promise.reject("Whoops something went wrong. Please contact Ana.");
+  }
+};
+
+export const fetchChannelVideos: (
+  searchQuery?: string
+) => Promise<Video[]> = async (searchQuery?: string) => {
+  let requestURL = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=UCsT0YIqwnpJCM-mx7-gSA4Q&type=video&key=${API_KEY}&maxResults=10&videoEmbeddable=true`;
+  if (!!searchQuery) {
+    requestURL += `&q=${searchQuery}`;
+  }
+
+  try {
+    const response = (await axios.get(requestURL)) as {
+      data: { items: YoutubeVideo[] };
+    };
+    const {
+      data: { items = [] }
+    } = response;
+
+    const videos: Video[] = [];
+
+    items.forEach(({ id, snippet }: YoutubeVideo) => {
+      videos.push({
+        videoId: (id || {}).videoId || "",
+        publishedAt: snippet.publishedAt || "",
+        title: snippet.title || "",
+        description: snippet.description || "",
+        smallThumbnailURL: ((snippet.thumbnails || {}).default || {}).url || "",
+        mediumThumbnailURL: ((snippet.thumbnails || {}).medium || {}).url || "",
+        channelName: snippet.channelTitle || "",
+        channelId: snippet.channelId || ""
+      });
+    });
+
+    return videos;
   } catch (e) {
     if (e.response.status === 403) {
       return Promise.reject(QUOTA_EXCEEDED_ERROR);
