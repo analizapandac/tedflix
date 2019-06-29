@@ -11,9 +11,15 @@
     justify-content: space-between;
     align-items: flex-end;
     color: $dirty-white;
+    transition: color 0.3s;
+
+    &:hover {
+      color: $white;
+    }
 
     div {
       flex: 1;
+      color: inherit;
     }
 
     label {
@@ -29,16 +35,17 @@
       padding: 0 0.5rem;
       background: transparent;
       border: 1px solid $transparent-red;
-      color: $white;
+      color: inherit;
       width: 100%;
     }
 
     button {
       background: transparent;
       border: 1px solid $transparent-red;
-      color: $dirty-white;
+      color: inherit;
       height: $field-height;
       padding: 0 2rem;
+      transition: background-color 0.3s;
 
       img {
         max-width: 1rem;

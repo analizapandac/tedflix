@@ -2,7 +2,7 @@ import React from "react";
 import debounce from "lodash.debounce";
 import "./App.scss";
 import { Video } from "./interfaces/Video";
-import { fetchChannelVideos, fetchDefaultVideos } from "./api/youtube";
+import { fetchChannelVideos } from "./api/youtube";
 import { TedxBackground } from "./components/TedxBackground";
 import { SearchBar } from "./components/SearchBar";
 import { VideoList } from "./components/VideoList";
@@ -17,31 +17,41 @@ const App: React.FC = () => {
   const [selectedVideo, setSelectedVideo] = React.useState<Video | null>(null);
   const [errorMessage, setErrorMessage] = React.useState<string>();
   const [loaded, setLoaded] = React.useState(false);
+  const [lastSearchQuery, setLastSearchQuery] = React.useState("");
+  const [isSearching, setIsSearching] = React.useState(false);
 
   const getDefaultVideos: () => void = () => {
-    fetchDefaultVideos()
+    fetchChannelVideos({
+      shouldUseDefaultVideos: true
+    })
       .then(function(channelVideos) {
         setVideos(channelVideos);
         setSelectedVideo(channelVideos.length > 0 ? channelVideos[0] : null);
         setLoaded(true);
+        setIsSearching(false);
       })
       .catch((err) => {
         console.log("error", err);
         setErrorMessage(err);
         setLoaded(false);
+        setIsSearching(false);
       });
   };
 
-  const fetchVideos: (searchQuery?: string) => void = (
+  const searchVideos: (searchQuery?: string) => void = (
     searchQuery?: string
   ) => {
-    fetchChannelVideos(searchQuery)
+    fetchChannelVideos({
+      searchQuery
+    })
       .then(function(channelVideos) {
         setVideos(channelVideos);
+        setIsSearching(false);
       })
       .catch((err) => {
         console.log("error", err);
         setErrorMessage(err);
+        setIsSearching(false);
       });
   };
 
@@ -58,7 +68,17 @@ const App: React.FC = () => {
   const onVideoSearch: (searchQuery: string) => void = (
     searchQuery: string
   ) => {
-    fetchVideos(searchQuery);
+    if (
+      lastSearchQuery.trim().toUpperCase() === searchQuery.trim().toUpperCase()
+    )
+      return;
+    if (searchQuery.trim().length === 0 && lastSearchQuery.trim().length > 0) {
+      getDefaultVideos();
+    } else {
+      setIsSearching(true);
+      setLastSearchQuery(searchQuery);
+      searchVideos(searchQuery);
+    }
   };
 
   const debouncedSearchVideoFunc = debounce(onVideoSearch, DEBOUNCE_TIME);
@@ -87,6 +107,7 @@ const App: React.FC = () => {
                 videos={videos}
                 selectedVideo={selectedVideo}
                 onVideoClick={onVideoClick}
+                isSearching={isSearching}
               />
             </div>
           </div>

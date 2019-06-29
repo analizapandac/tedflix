@@ -5,17 +5,18 @@ import "./VideoList.scss";
 interface VideoListProps {
   videos: Video[];
   selectedVideo: Video;
+  isSearching: boolean;
   onVideoClick: (videoId: string) => void;
 }
 
 export const VideoList: React.FC<VideoListProps> = ({
   videos,
   selectedVideo,
+  isSearching,
   onVideoClick
 }: VideoListProps) => {
-  return (
-    <div className="video-list-component">
-      <h3 className="title">Related talks</h3>
+  const renderVideos: () => React.ReactNode = () => {
+    return (
       <ul>
         {videos.map(({ title, videoId, mediumThumbnailURL }) => {
           if (selectedVideo && videoId === selectedVideo.videoId) return null;
@@ -34,6 +35,16 @@ export const VideoList: React.FC<VideoListProps> = ({
           );
         })}
       </ul>
+    );
+  };
+
+  const renderSearchingIndicator: () => React.ReactNode = () => {
+    return <p className="searching-indicator">Fetching talks from Youtube, please wait...</p>;
+  };
+
+  return (
+    <div className="video-list-component">
+      {!isSearching ? renderVideos() : renderSearchingIndicator()}
     </div>
   );
 };

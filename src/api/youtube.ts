@@ -1,6 +1,6 @@
 import axios from "axios";
 import { Video } from "../interfaces/Video";
-import { shuffleVideos } from '../utils/array-helpers';
+import { shuffleVideos } from "../utils/array-helpers";
 
 export const QUOTA_EXCEEDED_ERROR =
   "Youtube API Error: Maximum quota limit exceeded for today. Try again tomorrow.";
@@ -11,8 +11,13 @@ export const GENERAL_REQUEST_ERROR =
 export const NOT_FOUND_ERROR =
   "Youtube API Error: The video you are looking for does not exist in Youtube.";
 
-// const API_KEY = "AIzaSyCGRxIYK1plx4jjpi_NgbAS2BMIReqkaSQ";
-const API_KEY = "AIzaSyDcWWnc8Av0kdMy3O3us6BE3fxoVy1Y538";
+const API_KEY = process.env.REACT_APP_API_KEY || "";
+
+if (!API_KEY) {
+  console.warn(
+    "Don't forget to set your environment variable in your .environment files (.env.local, .env.production.local, etc)"
+  );
+}
 
 interface YoutubeVideo {
   id: { videoId: string };
@@ -26,48 +31,23 @@ interface YoutubeVideo {
   };
 }
 
-export const fetchDefaultVideos: () => Promise<Video[]> = async () => {
-  try {
-    const response = (await axios.get("/default-videos.json")) as {
-      data: { items: YoutubeVideo[] };
-    };
-
-    const {
-      data: { items = [] }
-    } = response;
-
-    const videos: Video[] = [];
-
-    items.forEach(({ id, snippet }: YoutubeVideo) => {
-      videos.push({
-        videoId: (id || {}).videoId || "",
-        publishedAt: snippet.publishedAt || "",
-        title: snippet.title || "",
-        description: snippet.description || "",
-        smallThumbnailURL: ((snippet.thumbnails || {}).default || {}).url || "",
-        mediumThumbnailURL: ((snippet.thumbnails || {}).medium || {}).url || "",
-        channelName: snippet.channelTitle || "",
-        channelId: snippet.channelId || ""
-      });
-    });
-
-    const shuffled = shuffleVideos(videos);
-    return shuffled.slice(0, 6);
-  } catch (e) {
-    if (e.response.status === 404) {
-      return Promise.reject(NOT_FOUND_ERROR);
-    }
-    return Promise.reject("Whoops something went wrong. Please contact Ana.");
-  }
-};
+interface FetchVideosInterface {
+  shouldUseDefaultVideos?: boolean;
+  searchQuery?: string;
+}
 
 export const fetchChannelVideos: (
-  searchQuery?: string
-) => Promise<Video[]> = async (searchQuery?: string) => {
+  FetchVideosInterface: FetchVideosInterface
+) => Promise<Video[]> = async ({
+  shouldUseDefaultVideos = false,
+  searchQuery
+}: FetchVideosInterface) => {
   let requestURL = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=UCsT0YIqwnpJCM-mx7-gSA4Q&type=video&key=${API_KEY}&maxResults=5&videoEmbeddable=true`;
   if (!!searchQuery) {
     requestURL += `&q=${searchQuery}`;
   }
+
+  if (shouldUseDefaultVideos) requestURL = "/default-videos.json";
 
   try {
     const response = (await axios.get(requestURL)) as {
@@ -92,6 +72,10 @@ export const fetchChannelVideos: (
       });
     });
 
+    if (shouldUseDefaultVideos) {
+      const shuffled = shuffleVideos(videos);
+      return shuffled.slice(0, 6);
+    }
     return videos;
   } catch (e) {
     if (e.response.status === 403) {
