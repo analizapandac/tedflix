@@ -29,7 +29,7 @@ export const Footer: React.FC = () => {
           .
         </div>
         <div>
-          Made with <span className="icon-love">&#10084;</span> by&nbsp;
+          This is for-fun and learning project made with <span className="icon-love">&#10084;</span> by&nbsp;
           <a
             href="https://github.com/analizapandac"
             target="_blank"
