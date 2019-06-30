@@ -2,18 +2,6 @@ import axios from "axios";
 import { Video } from "../interfaces/Video";
 import { shuffleVideos } from "../utils/array-helpers";
 
-export const QUOTA_EXCEEDED_ERROR =
-  "Youtube API Error: The request cannot be completed because you have exceeded your usage quota. Try again tomorrow.";
-
-export const GENERAL_REQUEST_ERROR =
-  "Youtube API Error: An error occured while reaching out to Youtube for this request.";
-
-export const NOT_FOUND_ERROR =
-  "Youtube API Error: The video you are looking for does not exist in Youtube.";
-
-export const INVALID_KEY_ERROR =
-  "The API key that you provided is invalid. Please check your code configuration.";
-
 const API_KEY = process.env.REACT_APP_API_KEY || "";
 
 if (!API_KEY) {
@@ -38,6 +26,9 @@ interface FetchVideosInterface {
   shouldUseDefaultVideos?: boolean;
   searchQuery?: string;
 }
+
+const GENERAL_ERROR_MESSAGE =
+  "Whoops something went wrong. Please contact Ana: https://github.com/analizapandac.";
 
 export const fetchChannelVideos: (
   FetchVideosInterface: FetchVideosInterface
@@ -85,23 +76,15 @@ export const fetchChannelVideos: (
     if (Object.prototype.hasOwnProperty.call(errorData, "errors")) {
       try {
         const error = errorData.errors[0];
-        if (error && error.reason === "keyInvalid") {
-          return Promise.reject(INVALID_KEY_ERROR);
-        } else if (error && error.reason === "quotaExceeded") {
-          return Promise.reject(QUOTA_EXCEEDED_ERROR);
+        if (error && error.reason && error.message) {
+          return Promise.reject(error.message);
+        } else if (errorData.message) {
+          return Promise.reject(errorData.message);
         }
       } catch (err) {
         console.log("err", err);
       }
     }
-
-    if (e.response.status === 403) {
-      return Promise.reject(QUOTA_EXCEEDED_ERROR);
-    } else if (e.response.status === 400) {
-      return Promise.reject(GENERAL_REQUEST_ERROR);
-    } else if (e.response.status === 404) {
-      return Promise.reject(NOT_FOUND_ERROR);
-    }
-    return Promise.reject("Whoops something went wrong. Please contact Ana.");
+    return Promise.reject(GENERAL_ERROR_MESSAGE);
   }
 };
