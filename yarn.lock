@@ -1160,12 +1160,6 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react-plyr@^2.1.0":
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/@types/react-plyr/-/react-plyr-2.1.0.tgz#92459d9a94d5d3e4481ffa6364ce4b2b460034b9"
-  dependencies:
-    "@types/react" "*"
-
 "@types/react@*", "@types/react@16.8.20":
   version "16.8.20"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-16.8.20.tgz#4f633ecbd0a4d56d0ccc50fff6f9321bbcd7d583"
@@ -2460,10 +2454,6 @@ core-js@^2.4.0:
   version "2.6.5"
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.6.5.tgz#44bc8d249e7fb2ff5d00e0341a7ffb94fbf67895"
 
-core-js@^3.1.4:
-  version "3.1.4"
-  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.1.4.tgz#3a2837fc48e582e1ae25907afcd6cf03b0cc7a07"
-
 core-util-is@1.0.2, core-util-is@~1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/core-util-is/-/core-util-is-1.0.2.tgz#b5fd54220aa2bc5ab57aab7140c940754503c1a7"
@@ -2741,10 +2731,6 @@ currently-unhandled@^0.4.1:
   dependencies:
     array-find-index "^1.0.1"
 
-custom-event-polyfill@^1.0.7:
-  version "1.0.7"
-  resolved "https://registry.yarnpkg.com/custom-event-polyfill/-/custom-event-polyfill-1.0.7.tgz#9bc993ddda937c1a30ccd335614c6c58c4f87aee"
-
 cyclist@~0.2.2:
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/cyclist/-/cyclist-0.2.2.tgz#1b33792e11e914a2fd6d6ed6447464444e5fa640"
@@ -2770,10 +2756,6 @@ data-urls@^1.0.0, data-urls@^1.1.0:
 date-now@^0.1.4:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/date-now/-/date-now-0.1.4.tgz#eaf439fd4d4848ad74e5cc7dbef200672b9e345b"
-
-dayjs@^1.8.14:
-  version "1.8.14"
-  resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.8.14.tgz#43e4f62830c2c3342c3fcd25934dc9162dbe6f38"
 
 debug@2.6.9, debug@^2.2.0, debug@^2.3.3, debug@^2.6.0, debug@^2.6.8, debug@^2.6.9:
   version "2.6.9"
@@ -5276,10 +5258,6 @@ loader-utils@1.2.3, loader-utils@^1.0.1, loader-utils@^1.0.2, loader-utils@^1.1.
     emojis-list "^2.0.0"
     json5 "^1.0.1"
 
-loadjs@^3.6.1:
-  version "3.6.1"
-  resolved "https://registry.yarnpkg.com/loadjs/-/loadjs-3.6.1.tgz#1e756ccd4f4c5ed4988085b330e1b4ad9b6a8340"
-
 locate-path@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/locate-path/-/locate-path-2.0.0.tgz#2b568b265eec944c6d9c0de9c3dbbbca0354cd8e"
@@ -6319,16 +6297,6 @@ pkg-up@2.0.0:
   dependencies:
     find-up "^2.1.0"
 
-plyr@^3.5.2:
-  version "3.5.6"
-  resolved "https://registry.yarnpkg.com/plyr/-/plyr-3.5.6.tgz#1679d098af3fd0541bba62bc03f662f7c9ae6f2b"
-  dependencies:
-    core-js "^3.1.4"
-    custom-event-polyfill "^1.0.7"
-    loadjs "^3.6.1"
-    rangetouch "^2.0.0"
-    url-polyfill "^1.1.5"
-
 pn@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/pn/-/pn-1.1.0.tgz#e2f4cef0e219f463c179ab37463e4e1ecdccbafb"
@@ -7102,10 +7070,6 @@ range-parser@^1.0.3, range-parser@~1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/range-parser/-/range-parser-1.2.0.tgz#f49be6b487894ddc40dcc94a322f611092e00d5e"
 
-rangetouch@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/rangetouch/-/rangetouch-2.0.0.tgz#5459cdb38b929326c5484ab47aac9632fbe3a896"
-
 raw-body@2.3.3:
   version "2.3.3"
   resolved "https://registry.yarnpkg.com/raw-body/-/raw-body-2.3.3.tgz#1b324ece6b5706e153855bc1148c65bb7f6ea0c3"
@@ -7181,13 +7145,6 @@ react-error-overlay@^5.1.6:
 react-is@^16.8.1, react-is@^16.8.4:
   version "16.8.6"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.8.6.tgz#5bbc1e2d29141c9fbdfed456343fe2bc430a6a16"
-
-react-plyr@^2.2.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/react-plyr/-/react-plyr-2.2.0.tgz#94b0b2f815411d1af65de9694059eaab8a726c75"
-  dependencies:
-    plyr "^3.5.2"
-    prop-types "^15.7.2"
 
 react-scripts@3.0.1:
   version "3.0.1"
@@ -8594,10 +8551,6 @@ url-parse@^1.4.3:
   dependencies:
     querystringify "^2.1.1"
     requires-port "^1.0.0"
-
-url-polyfill@^1.1.5:
-  version "1.1.5"
-  resolved "https://registry.yarnpkg.com/url-polyfill/-/url-polyfill-1.1.5.tgz#bec79b72b5407dba6d8cced2e32e4ab273aa9fb1"
 
 url@^0.11.0:
   version "0.11.0"

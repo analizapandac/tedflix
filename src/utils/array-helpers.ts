@@ -5,7 +5,7 @@ import { Video } from "../interfaces/Video";
  * @param  {Array} array The array to shuffle
  * @return {String}      The first item in the shuffled array
  */
-export const shuffleVideos: (videos: Video[]) => Video[] = (videos: Video[]) => {
+export const shuffleVideos: (videos: Video[]) => Video[] = (videos) => {
   let currentIndex = videos.length;
   let temporaryValue: Video;
   let randomIndex: number;

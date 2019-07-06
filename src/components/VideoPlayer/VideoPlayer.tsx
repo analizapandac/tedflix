@@ -8,7 +8,7 @@ interface VideoPlayerProps {
 
 export const VideoPlayer: React.FC<VideoPlayerProps> = ({
   video
-}: VideoPlayerProps) => {
+}) => {
   const { title, videoId, description } = video;
   return (
     <div className="video-player-component">

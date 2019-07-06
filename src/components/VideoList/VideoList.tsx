@@ -14,7 +14,7 @@ export const VideoList: React.FC<VideoListProps> = ({
   selectedVideo,
   isSearching,
   onVideoClick
-}: VideoListProps) => {
+}) => {
   const renderVideos: () => React.ReactNode = () => {
     if (!videos.length) {
       return <p className="empty-placeholder">No talks found.</p>;

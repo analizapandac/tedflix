@@ -50,7 +50,7 @@ const App: React.FC = () => {
   };
 
   const searchVideos: (searchQuery?: string) => void = (
-    searchQuery?: string
+    searchQuery
   ) => {
     fetchChannelVideos({
       searchQuery
@@ -71,7 +71,7 @@ const App: React.FC = () => {
     getDefaultVideos();
   }, []);
 
-  const onVideoClick: (videoId: string) => void = (videoId: string) => {
+  const onVideoClick: (videoId: string) => void = (videoId) => {
     const video = videos.find((video: Video) => video.videoId === videoId);
 
     setSelectedVideo(video || null);
@@ -90,7 +90,7 @@ const App: React.FC = () => {
   };
 
   const onVideoSearch: (searchQuery: string) => void = (
-    searchQuery: string
+    searchQuery
   ) => {
     if (
       lastSearchQuery.trim().toUpperCase() === searchQuery.trim().toUpperCase()

@@ -8,8 +8,3 @@ export interface Video  {
   channelName: string;
   channelId: string;
 }
-
-export interface VideoSelectionArgs {
-  channelId: string;
-  videoId: string;
-}

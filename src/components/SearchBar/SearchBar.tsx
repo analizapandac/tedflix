@@ -7,11 +7,11 @@ interface SearchBarProps {
 
 export const SearchBar: React.FC<SearchBarProps> = ({
   onSearch
-}: SearchBarProps) => {
+}) => {
   const [searchQuery, setSearchQuery] = React.useState("");
 
   const onSubmit: (event: React.FormEvent<HTMLFormElement>) => void = (
-    event: React.FormEvent<HTMLFormElement>
+    event
   ) => {
     event.preventDefault();
     onSearch(searchQuery);
