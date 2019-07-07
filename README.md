@@ -4,6 +4,20 @@ This is a for-fun project created to learn TypeScript and built together with Re
 ### Live Demo
 [https://tedflix.netlify.com/](https://tedflix.netlify.com/)
 
+### Cloning the Project
+
+```
+git clone git@github.com:analizapandac/tedflix.git
+cd tedflix
+```
+
+### Install project dependencies
+```
+yarn install 
+// or
+npm install
+```
+
 ### Available Scripts
 
 In the project directory, you can run:
